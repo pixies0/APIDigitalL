@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Services%services.ns%;
+
+use App\Repositories%repository.ns%;
+use App\Services\BaseService;
+
+class %modelName%Service extends BaseService
+{
+    protected $repository;
+
+    public function __construct(%modelName%Repository $repo)
+    {
+        $this->repository = $repo;
+    }
+}

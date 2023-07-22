@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Http\Controllers%controller.ns%;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Services%services.ns%\%modelName%Service;
+
+class %modelName%Controller extends Controller
+{
+   
+    protected $service;
+
+    public function __construct(%modelName%Service $service)
+    {
+        $this->service = $service;
+    }
+    
+    public function index()
+    {
+        $result = $this->service->findAll();
+        return response()->json($result);
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->all();
+        $result = $this->service->create($validated);
+        return response()->json(['message' => 'Registro Inserido', 'result' => $result]);
+
+    }
+
+    public function show(int $id)
+    {
+        $result = $this->service->find($id);
+        return response()->json($result);
+    }
+
+    public function update(Request $request, int $id)
+    {
+        $validated = $request->all();
+        $this->service->update($id, $validated);
+        return response()->json(['message' => 'Registro Atualizado']);
+    }
+
+    public function destroy(int $id)
+    {
+        $this->service->delete($id);
+        return response()->json(['message' => 'Registro Excluído']);
+    }
+}

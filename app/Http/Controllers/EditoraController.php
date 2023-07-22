@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EditoraRequest;
 use App\Services\EditoraService;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class EditoraController extends Controller
@@ -44,7 +45,16 @@ class EditoraController extends Controller
 
     public function destroy(int $id)
     {
-        $this->service->delete($id);
-        return response()->json(['message' => 'Registro Excluído']);
+        try {
+            $editora = $this->service->find($id);
+
+            if ($editora->livros()->exists()) {
+                return response()->json(['message' => 'Não é possivel remover editora, pois existe livros associados a ela']);
+            }
+            $this->service->delete($id, ['livros']);
+            return response()->json(['message' => 'Registro Excluído']);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'Editora não existe']);
+        }
     }
 }

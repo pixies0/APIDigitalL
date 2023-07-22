@@ -2,7 +2,18 @@
 
 namespace {{ namespace }};
 
-class {{ class }} extends BaseModel
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class {{ class }} extends Model
 {
      protected $guarded = [];
+
+     protected $fillable = [];
+
+         protected static function newFactory(): Factory
+    {
+        return {{class}}Factory::new();
+    }
 }

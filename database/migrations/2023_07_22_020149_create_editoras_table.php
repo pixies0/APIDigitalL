@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('editoras', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 40);
+            $table->string('nome')->unique();
             $table->string('endereco');
             $table->string('telefone');
             $table->timestamps();

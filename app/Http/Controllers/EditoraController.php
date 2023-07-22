@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EditoraRequest;
 use App\Services\EditoraService;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class EditoraController extends Controller
         return response()->json($result);
     }
 
-    public function store(Request $request)
+    public function store(EditoraRequest $request)
     {
         $validated = $request->all();
         $result = $this->service->create($validated);
@@ -34,7 +35,7 @@ class EditoraController extends Controller
         return response()->json($result);
     }
 
-    public function update(Request $request, int $id)
+    public function update(EditoraRequest $request, int $id)
     {
         $validated = $request->all();
         $result = $this->service->update($id, $validated);

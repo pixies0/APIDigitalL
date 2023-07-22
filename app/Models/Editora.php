@@ -11,6 +11,7 @@ class Editora extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nome', 'endereco', 'telefone'];
     protected static function newFactory(): Factory
     {
         return EditoraFactory::new();

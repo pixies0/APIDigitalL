@@ -39,6 +39,9 @@ class LivroController extends Controller
     {
         $validated = $request->all();
         $result = $this->service->advancedUpdate($id, $validated);
+        if (!$result['editora_id']) {
+            return response()->json(['message' => 'Editora não existe']);
+        }
         return response()->json(['message' => 'Registro Atualizado', 'result' => $result]);
     }
 

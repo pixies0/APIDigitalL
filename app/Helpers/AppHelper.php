@@ -10,7 +10,6 @@ function Erro($mensagem = '', $erro = ''): int
     $salvar = ErroSistema::create([
         'mensagem' => $mensagem,
         'erro' => $erro,
-        'pessoa_id' => Auth()->id(),
     ]);
 
     return $salvar->id;

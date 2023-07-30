@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(EditorasTableSeeder::class);
         $this->call(LivrosTableSeeder::class);
-    }   
+        $this->call(UnidadesTableSeeder::class);
+    }
 }

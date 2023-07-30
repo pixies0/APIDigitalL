@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('editoras', function (Blueprint $table) {
+        Schema::create('unidades', function (Blueprint $table) {
             $table->id();
-            $table->string('nome')->unique();
+            $table->string('nome');
             $table->string('endereco');
-            $table->string('telefone');
             $table->timestamps();
-
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('editoras');
+        Schema::dropIfExists('unidades');
     }
 };

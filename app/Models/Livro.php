@@ -14,6 +14,8 @@ class Livro extends Model
     use HasFactory;
     protected $guarded = [];
     protected $fillable = ['titulo', 'nome_editora', 'editora_id'];
+    protected $hidden = ['created_at', 'updated_at'];
+
 
     protected static function newFactory(): Factory
     {

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 use Throwable;
 use Exception;
+use App\Exceptions\AppError;
 
 
 class Handler extends ExceptionHandler

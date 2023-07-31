@@ -15,6 +15,6 @@ class LivrosTableSeeder extends Seeder
      */
     public function run()
     {
-        Livro::factory()->count(5)->create();
+        Livro::factory()->count(15)->create();
     }
 }

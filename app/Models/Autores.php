@@ -6,6 +6,7 @@ use Database\Factories\AutoresFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Autores extends Model
 {
@@ -20,5 +21,10 @@ class Autores extends Model
     protected static function newFactory(): Factory
     {
         return AutoresFactory::new();
+    }
+
+    public function livro(): HasMany
+    {
+        return $this->hasMany(Livro::class);
     }
 }

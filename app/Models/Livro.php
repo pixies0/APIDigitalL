@@ -26,4 +26,9 @@ class Livro extends Model
     {
         return $this->belongsTo(Editora::class);
     }
+
+    public function livroAutor(): BelongsTo
+    {
+        return $this->belongsTo(Livro_Autor::class);
+    }
 }

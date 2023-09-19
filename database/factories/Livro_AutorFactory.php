@@ -18,9 +18,11 @@ class Livro_AutorFactory extends Factory
     public function definition(): array
     {
 
+        $livro = Livro::inRandomOrder()->first();
         $autor = Autores::inRandomOrder()->first();
         return [
-            'nome_livro' => $this->faker->sentence(4),
+            'livro_id' => $livro->id,
+            'livro_titulo' => $livro->titulo,
             'autor_id' => $autor->id
         ];
     }

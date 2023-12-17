@@ -20,7 +20,7 @@ class Livro_AutorFactory extends Factory
 
         $autor = Autores::inRandomOrder()->first();
         return [
-            'nome_livro' => $this->faker->sentence(4),
+            'nome_livro' => $this->faker->words(4, true),
             'autor_id' => $autor->id
         ];
     }

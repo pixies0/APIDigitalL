@@ -21,3 +21,4 @@ Orangehill\Iseed\IseedServiceProvider::class;
 include "AppRoutes/Editora.php";
 include "AppRoutes/Livro.php";
 include "AppRoutes/Unidade.php";
+include "AppRoutes/LivroAutor.php";

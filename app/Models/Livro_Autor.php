@@ -15,7 +15,7 @@ class Livro_Autor extends Model
     protected $table = 'livro_autores';
     protected $guarded = [];
 
-    protected $fillable = ['livro_id', 'nome_autor'];
+    protected $fillable = ['livro_id', 'nome_autor', 'autor_id'];
 
     protected $hidden = ['created_at', 'updated_at'];
 

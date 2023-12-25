@@ -24,7 +24,7 @@ class LivroController extends Controller
 
     public function store(LivroRequest $request)
     {
-        $validated = $request->all();
+        $validated = $request->validated();
         $result = $this->service->advancedCreate($validated);
         return response()->json(['message' => 'Registro Inserido', 'result' => $result]);
     }
@@ -37,7 +37,7 @@ class LivroController extends Controller
 
     public function update(LivroRequest $request, int $id)
     {
-        $validated = $request->all();
+        $validated = $request->validated();
         $result = $this->service->advancedUpdate($id, $validated);
         if (!$result['editora_id']) {
             return response()->json(['message' => 'Editora não existe']);

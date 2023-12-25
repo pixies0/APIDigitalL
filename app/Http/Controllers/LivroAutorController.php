@@ -24,7 +24,7 @@ class LivroAutorController extends Controller
 
     public function store(LivroAutorRequest $request)
     {
-        $validated = $request->all();
+        $validated = $request->validated();
         $result = $this->service->create($validated);
         return response()->json(['message' => 'Registro Inserido', 'result' => $result]);
     }
@@ -37,7 +37,7 @@ class LivroAutorController extends Controller
 
     public function update(LivroAutorRequest $request, int $id)
     {
-        $validated = $request->all();
+        $validated = $request->validated();
         $result = $this->service->update($id, $validated);
         return response()->json(['message' => 'Registro Atualizado', 'result' => $result]);
     }

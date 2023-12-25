@@ -25,7 +25,7 @@ class EditoraController extends Controller
 
     public function store(EditoraRequest $request)
     {
-        $validated = $request->all();
+        $validated = $request->validated();
         $result = $this->service->create($validated);
         return response()->json(['message' => 'Registro Inserido', 'result' => $result]);
     }
@@ -38,7 +38,7 @@ class EditoraController extends Controller
 
     public function update(EditoraRequest $request, int $id)
     {
-        $validated = $request->all();
+        $validated = $request->validated();
         $result = $this->service->update($id, $validated);
         return response()->json(['message' => 'Registro Atualizado', 'result' => $result]);
     }

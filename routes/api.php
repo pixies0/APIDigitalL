@@ -17,6 +17,9 @@ Orangehill\Iseed\IseedServiceProvider::class;
 |
 */
 
+Route::get('/', function () {
+    return response()->json("Saúde");
+});
 
 include "AppRoutes/Editora.php";
 include "AppRoutes/Livro.php";

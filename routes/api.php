@@ -37,4 +37,5 @@ Route::middleware('jwt.verify')->group(function () {
     include "AppRoutes/Unidade.php";
     include "AppRoutes/LivroAutor.php";
     include "AppRoutes/LivroCopias.php";
+    include "AppRoutes/LivroEmprestimos.php";
 });

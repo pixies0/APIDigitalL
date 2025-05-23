@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\EditoraController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Orangehill\Iseed\IseedServiceProvider::class;
@@ -21,8 +20,21 @@ Route::get('/', function () {
     return response()->json("Saúde");
 });
 
-include "AppRoutes/Editora.php";
-include "AppRoutes/Livro.php";
-include "AppRoutes/Unidade.php";
-include "AppRoutes/LivroAutor.php";
-include "AppRoutes/LivroCopias.php";
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
+
+Route::middleware('jwt.verify')->group(function () {
+    // Rotas de Autenticação
+    Route::get('/user', [AuthController::class, 'getUser']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::put('/user', [AuthController::class, 'updateUser']);
+    Route::post('/refresh', [AuthController::class, 'refresh']);
+
+    // Rotas de CRUD do Sistema
+    include "AppRoutes/Editora.php";
+    include "AppRoutes/Livro.php";
+    include "AppRoutes/Unidade.php";
+    include "AppRoutes/LivroAutor.php";
+    include "AppRoutes/LivroCopias.php";
+});

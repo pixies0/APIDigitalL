@@ -7,9 +7,6 @@ use App\Models\Livro_Copia;
 use App\Models\Unidade;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
- */
 class Livro_CopiasFactory extends Factory
 {
     /**

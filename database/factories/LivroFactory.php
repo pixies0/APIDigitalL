@@ -6,9 +6,6 @@ use App\Models\Editora;
 use App\Models\Livro;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Livro>
- */
 class LivroFactory extends Factory
 {
     /**

@@ -5,9 +5,6 @@ namespace Database\Factories;
 use App\Models\Editora;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Editora>
- */
 class EditoraFactory extends Factory
 {
     /**

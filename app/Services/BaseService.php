@@ -98,10 +98,6 @@ class BaseService
 
     public function create(array $dados, array $relations = [])
     {
-        if (isset($dados['cnpj']) && !$this->validarCpfCnpj($dados['cnpj'])) {
-            throw new AppError('CNPJ invalido');
-        }
-
         try {
             return DB::transaction(function () use ($dados, $relations) {
                 $result = $this->repository->create($dados);

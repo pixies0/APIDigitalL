@@ -13,4 +13,33 @@ class LivroCopiasRepository extends BaseRepository
     {
         $this->model = $model;
     }
+
+     public function findByLivroAndUnidade(int $livroId, int $unidadeId): ?Livro_Copia
+    {
+        return $this->model->where('livro_id', $livroId)
+                           ->where('unidade_id', $unidadeId)
+                           ->first();
+    }
+
+    public function decrementQuantidade(int $livroId, int $unidadeId): void
+    {
+        $copia = $this->findByLivroAndUnidade($livroId, $unidadeId);
+
+        if (!$copia || $copia->quantidade < 1) {
+            throw new \Exception('Não há cópias disponíveis para este livro nesta unidade.');
+        }
+
+        $copia->decrement('quantidade');
+    }
+
+    public function incrementQuantidade(int $livroId, int $unidadeId): void
+    {
+        $copia = $this->findByLivroAndUnidade($livroId, $unidadeId);
+
+        if (!$copia) {
+            throw new \Exception('Cópia não encontrada para este livro nesta unidade.');
+        }
+
+        $copia->increment('quantidade');
+    }
 }

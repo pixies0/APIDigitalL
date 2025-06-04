@@ -20,7 +20,7 @@ class AuthController extends Controller
             'address' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:20',
             'registration' => 'numeric|max:1000000',
-            'is_admin' => 'boolean'
+            'is_admin' => 'nullable|boolean'
         ]);
 
         $user = User::create([

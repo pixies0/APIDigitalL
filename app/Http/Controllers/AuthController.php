@@ -19,7 +19,7 @@ class AuthController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'address' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:20',
-            'registration' => 'numeric|max:1000000',
+            'registration' => 'numeric|max:999999999',
             'is_admin' => 'nullable|boolean'
         ]);
 
